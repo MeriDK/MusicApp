@@ -1,0 +1,29 @@
+.login-page
+  &__col
+    height: 100%
+    position: fixed
+    top: 0
+    padding-top: 20px
+    @media screen and (min-width: 700px)
+      width: 50%
+    @media screen and (max-width: 700px)
+      width: 100%
+
+    &_left
+      left: 0
+      @media screen and (min-width: 0px) and (max-width: 500px)
+        display: none
+
+    &_right
+      right: 0
+
+  &__img-wrapper
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-150%, -50%)
+    text-align: center
+    margin-right: 0
+
+  &__img
+    width: 300%

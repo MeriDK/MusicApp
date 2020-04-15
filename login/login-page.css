@@ -1,0 +1,40 @@
+.login-page__col {
+  height: 100%;
+  position: fixed;
+  top: 0;
+  padding-top: 20px;
+}
+@media screen and (min-width: 700px) {
+  .login-page__col {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 700px) {
+  .login-page__col {
+    width: 100%;
+  }
+}
+.login-page__col_left {
+  left: 0;
+}
+@media screen and (min-width: 0px) and (max-width: 500px) {
+  .login-page__col_left {
+    display: none;
+  }
+}
+.login-page__col_right {
+  right: 0;
+}
+.login-page__img-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-150%, -50%);
+  text-align: center;
+  margin-right: 0;
+}
+.login-page__img {
+  width: 300%;
+}
+
+/*# sourceMappingURL=login-page.css.map */
