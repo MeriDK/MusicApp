@@ -1,9 +1,11 @@
 body {
   margin: 0;
   padding-top: 70px;
+  background-color: #012142;
 }
 
 .nav-bar {
+  background-color: #012142;
   position: fixed;
   top: 0;
   height: 7%;
@@ -192,6 +194,7 @@ body {
   color: white;
   margin-top: 20px;
   cursor: pointer;
+  background-color: #012142;
 }
 @media screen and (max-width: 500px) {
   .playlist__button {
