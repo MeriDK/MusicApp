@@ -1,0 +1,24 @@
+.logo-center {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #012142;
+  text-decoration: none;
+}
+.logo-center__title {
+  font-family: "Comic Sans MS", sans-serif;
+  color: #cccccc;
+  font-size: 2rem;
+}
+.logo-center__logo {
+  height: 30vh;
+}
+@media screen and (min-width: 500px) {
+  .logo-center__logo {
+    height: 50vh;
+  }
+}
+
+/*# sourceMappingURL=logo-center.css.map */

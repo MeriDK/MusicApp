@@ -1,0 +1,73 @@
+@import "styles"
+
+.playlist
+  display: flex
+  align-items: center
+  padding-top: 5rem
+  padding-bottom: 2rem
+  @media screen and (min-width: 500px)
+    padding-top: 8rem
+    padding-bottom: 4rem
+  background-color: $background-color
+  justify-content: space-evenly
+  &__image
+    height: 25vh
+    @media screen and (min-width: 500px)
+      height: 40vh
+    padding: 0 1rem
+  &__info
+    display: flex
+    flex-direction: column
+  &__name
+    color: $font-color-white
+    font-size: 1rem
+    font-weight: bold
+    @media screen and (min-width: 500px)
+      font-size: 2rem
+  &__description
+    color: $font-color-grey
+    max-width: 50rem
+    margin-top: 2rem
+    @media screen and (max-width: 500px)
+      display: none
+  &__button
+    border: 1px solid $font-color-grey
+    color: $font-color-white
+    cursor: pointer
+    background-color: $background-dark-color
+    font-weight: 500
+    width: 7rem
+    font-size: 0.7rem
+    margin-top: 1rem
+    height: 2rem
+    @media screen and (min-width: 500px)
+      width: 12rem
+      font-size: 1rem
+      margin-top: 2rem
+
+.song-list
+  background-color: $background-dark-color
+  display: flex
+  flex-direction: column
+  padding: 2rem
+  height: auto
+  @media screen and (min-width: 500px)
+    padding: 4rem 15rem
+
+.song
+  color: $font-color-grey
+  display: flex
+  height: 100%
+  font-size: 1rem
+  padding: 0.5rem 0
+  @media screen and (min-width: 500px)
+    font-size: 1.5rem
+  &__title
+    flex: 3
+    color: $font-color-white
+    font-weight: bold
+  &__artist
+    flex: 3
+  &__time
+    flex: 1
+    text-align: right
