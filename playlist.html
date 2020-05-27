@@ -11,6 +11,33 @@
   <link rel="stylesheet" href="css/playlist.css">
   <link rel="stylesheet" href="css/nav-bar.css">
   <link rel="stylesheet" href="css/logo-center.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    fetch('http://127.0.0.1:8000/playlist/2/')
+      .then(res => res.json())
+      .then((out) => {
+        var playlist_html = '<div class="logo-center"><img src="img/img' + out.id + '.jpg" alt="cover" class="playlist__image"></div>' +
+                '<div class="playlist__info"><div class="playlist__name">' + out.name + '</div>' +
+                '<div class="playlist__description">' + out.description + '</div>' +
+                '<button type="button" class="playlist__button">ADD TO LIBRARY</button></div>';
+        $('#playlist').html(playlist_html);
+      }).catch(err => console.log(err));
+
+    fetch('http://127.0.0.1:8000/song/?playlist=2')
+      .then(res => res.json())
+      .then((out) => {
+        var song_html = ''
+        for (let i in out) {
+          let song = out[i];
+          song_html += '<div class="song"><div class="song__title">' + song.name + '</div>' +
+                  '<div class="song__artist">' + song.artist + '</div>' +
+                  '<div class="song__time">' + song.duration + '</div></div>';
+        }
+        $('#song-list').html(song_html);
+      }).catch(err => console.log(err));
+  </script>
+
 </head>
 <body>
 <div class="nav-bar__wrapper">
@@ -34,136 +61,11 @@
       </a>
     </div>
     <a href="profile.html" class="nav-bar__img-wrapper">
-      <img src="img/ava.jpg" alt="ava" class="nav-bar__img  nav-bar__img_ava">
+      <img src="img/ava1.jpg" alt="ava" class="nav-bar__img  nav-bar__img_ava">
     </a>
   </div>
 </div>
-<div class="playlist">
-  <div class="logo-center">
-    <img src="img/dragons.jpg" alt="cover" class="playlist__image">
-  </div>
-  <div class="playlist__info">
-      <div class="playlist__name">Imagine Dragons vs. Twenty One Pilots</div>
-      <div class="playlist__description">Dragons against Pilots. The voice of Dan from Imagine Dragons against the voice of Tyler from Twenty One Pilots. Whose is better? You decide.</div>
-      <button type="button" class="playlist__button">ADD TO LIBRARY</button>
-  </div>
-</div>
-<div class="song-list">
-  <div class="song">
-    <div class="song__title">Believer</div>
-    <div class="song__artist">Imagine Dragons</div>
-    <div class="song__time">3:25</div>
-  </div>
-  <div class="song">
-    <div class="song__title">Heathens</div>
-    <div class="song__artist">twenty one pilots</div>
-    <div class="song__time">3:15</div>
-  </div>
-  <div class="song">
-    <div class="song__title">Thunder</div>
-    <div class="song__artist">Imagine Dragons</div>
-    <div class="song__time">3:08</div>
-  </div>
-  <div class="song">
-    <div class="song__title">Stressed Out</div>
-    <div class="song__artist">twenty one pilots</div>
-    <div class="song__time">3:22</div>
-  </div>
-  <div class="song">
-    <div class="song__title">Natural</div>
-    <div class="song__artist">Imagine Dragons</div>
-    <div class="song__time">3:10</div>
-  </div>
-  <div class="song">
-    <div class="song__title">Believer</div>
-    <div class="song__artist">Imagine Dragons</div>
-    <div class="song__time">3:25</div>
-  </div>
-  <div class="song">
-    <div class="song__title">Heathens</div>
-    <div class="song__artist">twenty one pilots</div>
-    <div class="song__time">3:15</div>
-  </div>
-  <div class="song">
-    <div class="song__title">Thunder</div>
-    <div class="song__artist">Imagine Dragons</div>
-    <div class="song__time">3:08</div>
-  </div>
-  <div class="song">
-    <div class="song__title">Stressed Out</div>
-    <div class="song__artist">twenty one pilots</div>
-    <div class="song__time">3:22</div>
-  </div>
-  <div class="song">
-    <div class="song__title">Song title</div>
-    <div class="song__artist">Artist</div>
-    <div class="song__time">x:xx</div>
-  </div>
-  <div class="song">
-    <div class="song__title">Song title</div>
-    <div class="song__artist">Artist</div>
-    <div class="song__time">x:xx</div>
-  </div>
-  <div class="song">
-    <div class="song__title">Song title</div>
-    <div class="song__artist">Artist</div>
-    <div class="song__time">x:xx</div>
-  </div>
-  <div class="song">
-    <div class="song__title">Song title</div>
-    <div class="song__artist">Artist</div>
-    <div class="song__time">x:xx</div>
-  </div>
-  <div class="song">
-    <div class="song__title">Song title</div>
-    <div class="song__artist">Artist</div>
-    <div class="song__time">x:xx</div>
-  </div>
-  <div class="song">
-    <div class="song__title">Song title</div>
-    <div class="song__artist">Artist</div>
-    <div class="song__time">x:xx</div>
-  </div>
-  <div class="song">
-    <div class="song__title">Song title</div>
-    <div class="song__artist">Artist</div>
-    <div class="song__time">x:xx</div>
-  </div>
-  <div class="song">
-    <div class="song__title">Song title</div>
-    <div class="song__artist">Artist</div>
-    <div class="song__time">x:xx</div>
-  </div>
-  <div class="song">
-    <div class="song__title">Song title</div>
-    <div class="song__artist">Artist</div>
-    <div class="song__time">x:xx</div>
-  </div>
-  <div class="song">
-    <div class="song__title">Song title</div>
-    <div class="song__artist">Artist</div>
-    <div class="song__time">x:xx</div>
-  </div>
-  <div class="song">
-    <div class="song__title">Song title</div>
-    <div class="song__artist">Artist</div>
-    <div class="song__time">x:xx</div>
-  </div>
-  <div class="song">
-    <div class="song__title">Song title</div>
-    <div class="song__artist">Artist</div>
-    <div class="song__time">x:xx</div>
-  </div>
-  <div class="song">
-    <div class="song__title">Song title</div>
-    <div class="song__artist">Artist</div>
-    <div class="song__time">x:xx</div>
-  </div>
-  <div class="song">
-    <div class="song__title">Song title</div>
-    <div class="song__artist">Artist</div>
-    <div class="song__time">x:xx</div>
-  </div>
-</div>
+<div class="playlist" id="playlist"></div>
+<div class="song-list" id="song-list"></div>
 </body>
 </html>

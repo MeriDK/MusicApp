@@ -11,6 +11,30 @@
   <link rel="stylesheet" href="css/home.css">
   <link rel="stylesheet" href="css/nav-bar.css">
   <link rel="stylesheet" href="css/logo-center.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    fetch('http://127.0.0.1:8000/playlist/')
+      .then(res => res.json())
+      .then((out) => {
+        var html_res = '';
+        for (let i in out) {
+          let playlist = out[i];
+          html_res += '<a href="playlist.html" class="container__image-wrapper">' +
+                  '<img src="img/img' + playlist.id + '.jpg" alt="cover" class="container__image">' +
+                  '<div class="container__title">' + playlist.name + '</div>' +
+                  '<div class="container__info">' + playlist.user + ' • '
+          if (playlist.type==='0') {
+            html_res += 'public';
+          }
+          else {
+            html_res += 'private';
+          }
+          html_res += '</div></a>';
+          $('#result').html(html_res);
+        }
+      }).catch(err => console.log(err));
+  </script>
 </head>
 <body>
 <div class="nav-bar__wrapper">
@@ -34,101 +58,10 @@
       </a>
     </div>
     <a href="profile.html" class="nav-bar__img-wrapper">
-      <img src="img/ava.jpg" alt="ava" class="nav-bar__img  nav-bar__img_ava">
+      <img src="img/ava1.jpg" alt="ava" class="nav-bar__img  nav-bar__img_ava">
     </a>
   </div>
 </div>
-<div class="container">
-  <a href="playlist.html" class="container__image-wrapper">
-    <img src="img/dragons.jpg" alt="cover" class="container__image">
-    <div class="container__title">Imagine Dragons vs...</div>
-    <div class="container__info">MeriDK • private</div>
-  </a>
-  <a href="playlist.html" class="container__image-wrapper">
-    <img src="img/nightwish.jpg" alt="cover" class="container__image">
-    <div class="container__title">Nightwish</div>
-    <div class="container__info">MeriDK • public</div>
-  </a>
-  <a href="playlist.html" class="container__image-wrapper">
-    <img src="img/arlett.jpg" alt="cover" class="container__image">
-    <div class="container__title">Arlett</div>
-    <div class="container__info">MeriDK • public</div>
-  </a>
-  <a href="playlist.html" class="container__image-wrapper">
-    <img src="img/queen.jpg" alt="cover" class="container__image">
-    <div class="container__title">Queen</div>
-    <div class="container__info">Username • public</div>
-  </a>
-  <a href="playlist.html" class="container__image-wrapper">
-    <img src="img/zhadan.jpg" alt="cover" class="container__image">
-    <div class="container__title">Жадан і собаки</div>
-    <div class="container__info">MeriDK • private</div>
-  </a>
-  <a href="playlist.html" class="container__image-wrapper">
-    <img src="img/macdonald.jpg" alt="cover" class="container__image">
-    <div class="container__title">Amy Macdonald</div>
-    <div class="container__info">Username • public</div>
-  </a>
-  <a href="playlist.html" class="container__image-wrapper">
-    <img src="img/square1.png" alt="cover" class="container__image">
-    <div class="container__title">Playlist title 1</div>
-    <div class="container__info">Username • public</div>
-  </a>
-  <a href="playlist.html" class="container__image-wrapper">
-    <img src="img/square1.png" alt="cover" class="container__image">
-    <div class="container__title">Playlist title 2</div>
-    <div class="container__info">MeriDK • public</div>
-  </a>
-  <a href="playlist.html" class="container__image-wrapper">
-    <img src="img/square1.png" alt="cover" class="container__image">
-    <div class="container__title">Playlist title 3</div>
-    <div class="container__info">Username • public</div>
-  </a>
-  <a href="playlist.html" class="container__image-wrapper">
-    <img src="img/square1.png" alt="cover" class="container__image">
-    <div class="container__title">Playlist title 4</div>
-    <div class="container__info">MeriDK • private</div>
-  </a>
-  <a href="playlist.html" class="container__image-wrapper">
-    <img src="img/square1.png" alt="cover" class="container__image">
-    <div class="container__title">Playlist title 5</div>
-    <div class="container__info">MeriDK • private</div>
-  </a>
-  <a href="playlist.html" class="container__image-wrapper">
-    <img src="img/square1.png" alt="cover" class="container__image">
-    <div class="container__title">Playlist title 6</div>
-    <div class="container__info">Username • public</div>
-  </a>
-  <a href="playlist.html" class="container__image-wrapper">
-    <img src="img/square1.png" alt="cover" class="container__image">
-    <div class="container__title">Playlist title 7</div>
-    <div class="container__info">Username • public</div>
-  </a>
-  <a href="playlist.html" class="container__image-wrapper">
-    <img src="img/square1.png" alt="cover" class="container__image">
-    <div class="container__title">Playlist title 8</div>
-    <div class="container__info">MeriDK • private</div>
-  </a>
-  <a href="playlist.html" class="container__image-wrapper">
-    <img src="img/square1.png" alt="cover" class="container__image">
-    <div class="container__title">Playlist title 9</div>
-    <div class="container__info">Username • public</div>
-  </a>
-  <a href="playlist.html" class="container__image-wrapper">
-    <img src="img/square1.png" alt="cover" class="container__image">
-    <div class="container__title">Playlist title 10</div>
-    <div class="container__info">Username • public</div>
-  </a>
-  <a href="playlist.html" class="container__image-wrapper">
-    <img src="img/square1.png" alt="cover" class="container__image">
-    <div class="container__title">Playlist title 11</div>
-    <div class="container__info">Username • public</div>
-  </a>
-  <a href="playlist.html" class="container__image-wrapper">
-    <img src="img/square1.png" alt="cover" class="container__image">
-    <div class="container__title">Playlist title 12</div>
-    <div class="container__info">MeriDK • private</div>
-  </a>
-</div>
+<div class="container" id="result"></div>
 </body>
 </html>

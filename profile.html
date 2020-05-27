@@ -12,6 +12,19 @@
   <link rel="stylesheet" href="css/nav-bar.css">
   <link rel="stylesheet" href="css/logo-center.css">
   <link rel="stylesheet" href="css/login.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+  fetch('http://127.0.0.1:8000/user/1/')
+    .then(res => res.json())
+    .then((out) => {
+      var profile_html = '<img src="img/ava' + out.id + '.jpg" alt="ava" class="profile__ava">' +
+              '<div class="profile__info">Username: ' + out.username + '</div>' +
+              '<div class="profile__info">Email: ' + out.email + '</div>' +
+              '<a href="index.html"><button type="button" class="login__button profile__button">Log out</button></a>';
+      $('#result').html(profile_html);
+    }).catch(err => console.log(err));
+  </script>
 </head>
 <body>
 <div class="nav-bar__wrapper">
@@ -35,17 +48,10 @@
       </a>
     </div>
     <a href="profile.html" class="nav-bar__img-wrapper">
-      <img src="img/ava.jpg" alt="ava" class="nav-bar__img  nav-bar__img_ava">
+      <img src="img/ava1.jpg" alt="ava" class="nav-bar__img  nav-bar__img_ava">
     </a>
   </div>
 </div>
-<div class="profile">
-  <img src="img/ava.jpg" alt="ava" class="profile__ava">
-  <div class="profile__info">Username: MeriDK</div>
-  <div class="profile__info">Email: email@gmail.com</div>
-  <a href="index.html">
-    <button type="button" class="login__button profile__button">Log out</button>
-  </a>
-</div>
+<div class="profile" id="result"></div>
 </body>
 </html>
