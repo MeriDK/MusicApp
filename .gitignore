@@ -1,1 +1,10 @@
 .idea
+venv
+MusicAppAPI/MusicAppAPI/__pycache__
+MusicAppAPI/user/__pycache__
+MusicAppAPI/playlist/__pycache__
+MusicAppAPI/song/__pycache__
+MusicAppAPI/db.sqlite3
+MusicAppAPI/user/migrations/
+MusicAppAPI/playlist/migrations/
+MusicAppAPI/song/migrations/

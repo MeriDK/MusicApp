@@ -23,9 +23,11 @@
   filter: brightness(100%);
 }
 .container__image-wrapper:hover .container__title {
+  background-color: black;
   text-shadow: 2px 2px 0 black, -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black;
 }
 .container__image-wrapper:hover .container__info {
+  background-color: black;
   text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
 }
 .container__image {
