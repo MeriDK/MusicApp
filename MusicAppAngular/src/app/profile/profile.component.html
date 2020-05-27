@@ -1,0 +1,9 @@
+<app-nav-bar></app-nav-bar>
+<div class="profile">
+  <img src="assets/img/ava1.jpg" alt="ava" class="profile__ava">
+  <div class="profile__info">Username: {{ profile.username }}</div>
+  <div class="profile__info">Email: {{ profile.email }}</div>
+  <a routerLink="/">
+    <button type="button" class="login__button profile__button">Log out</button>
+  </a>
+</div>

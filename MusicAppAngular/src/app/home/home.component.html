@@ -1,0 +1,12 @@
+<app-nav-bar></app-nav-bar>
+<div class="container">
+<a routerLink="/playlist" class="container__image-wrapper" *ngFor="let playlist of playlists">
+  <img src="assets/img/img{{ playlist.id }}.jpg" alt="cover" class="container__image">
+  <div class="container__title">{{ playlist.name }}</div>
+  <div class="container__info">
+    {{ playlist.user }} •
+    <span *ngIf="playlist.type==1; else public">private</span>
+    <ng-template #public>public</ng-template>
+  </div>
+</a>
+</div>

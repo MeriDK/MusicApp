@@ -1,0 +1,23 @@
+@import "src/styles"
+
+.profile
+  height: 100%
+  background-color: $background-color
+  display: flex
+  justify-content: center
+  align-items: center
+  flex-direction: column
+  &__ava
+    height: 25vh
+    @media screen and (min-width: 500px)
+      height: 35vh
+    border-radius: 50%
+    margin-bottom: 5rem
+  &__info
+    color: $font-color-white
+    font-size: 1.5rem
+    margin-bottom: 1rem
+  &__button
+    width: 10rem !important
+    font-size: 1.5rem !important
+    margin-top: 4rem !important
