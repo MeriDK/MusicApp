@@ -1,0 +1,20 @@
+<div class="login">
+  <div class="login__column login__column_small">
+    <div class="logo-center">
+      <img src="assets/img/logo.png" alt="logo" class="logo-center__logo">
+      <div class="logo-center__title">MusicApp</div>
+    </div>
+  </div>
+  <div class="login__column" style="background-color: white">
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="login__form">
+      <label for="username" class="login__label">Username</label>
+      <input type="text" formControlName="username" placeholder="Enter Username" class="login__input login__input_margin">
+      <label for="email" class="login__label">Email</label>
+      <input type="email" formControlName="email" placeholder="Enter Email" class="login__input login__input_margin">
+      <label for="password" class="login__label">Password</label>
+      <input type="password" formControlName="password" placeholder="Enter Password" class="login__input login__input_margin">
+      <button type="submit" class="login__button">Sign up</button>
+      <a class="login__text" routerLink="/login">Have an account? <span style="color: white">Login</span></a>
+    </form>
+  </div>
+</div>

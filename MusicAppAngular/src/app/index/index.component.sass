@@ -1,0 +1,18 @@
+@import "src/styles"
+
+.logo-center
+  height: 100%
+  display: flex
+  justify-content: center
+  align-items: center
+  flex-direction: column
+  background-color: $background-color
+  text-decoration: none
+  &__title
+    font-family: $font-logo
+    color: $font-color-grey
+    font-size: 2rem
+  &__logo
+    height: 30vh
+    @media screen and (min-width: 500px)
+      height: 50vh

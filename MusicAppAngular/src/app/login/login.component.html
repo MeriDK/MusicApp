@@ -1,0 +1,18 @@
+<div class="login">
+  <div class="login__column">
+    <div class="logo-center">
+      <img src="assets/img/logo.png" alt="logo" class="logo-center__logo">
+      <div class="logo-center__title">MusicApp</div>
+    </div>
+  </div>
+  <div class="login__column">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login__form">
+      <label for="username" class="login__label">Username</label>
+      <input type="text" formControlName="username" placeholder="Enter Username" class="login__input">
+      <label for="password" class="login__label">Password</label>
+      <input type="password" formControlName="password" placeholder="Enter Password" class="login__input">
+      <button type="submit" class="login__button">Login</button>
+      <a class="login__text" routerLink="/registration">Don't have account? <span style="color: white">Sign up</span></a>
+    </form>
+  </div>
+</div>

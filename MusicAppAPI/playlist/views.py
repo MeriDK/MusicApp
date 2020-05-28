@@ -3,7 +3,7 @@ from rest_framework.response import Response
 
 from .models import Playlist
 from .serializers import PlaylistSerializer
-from user.models import User
+from django.contrib.auth.models import User
 
 
 class PlaylistListView(generics.ListCreateAPIView):
