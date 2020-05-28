@@ -36,7 +36,7 @@ const routes: Routes = [
     component: ProfileComponent
   },
   {
-    path: 'playlist',
+    path: 'playlist/:id',
     component: PlaylistComponent
   },
   {

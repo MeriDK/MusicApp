@@ -1,22 +1,32 @@
 import { Component, OnInit } from '@angular/core';
+import { PublicService } from './public.service';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-public',
   templateUrl: './public.component.html',
-  styleUrls: ['./public.component.sass', '../home/home.component.sass']
+  styleUrls: ['./public.component.sass', '../home/home.component.sass'],
+  providers: [PublicService]
 })
 export class PublicComponent implements OnInit {
 
-  playlists = [];
+  playlists: any;
 
-  constructor() { }
+  constructor(
+    private publicService: PublicService
+  ) { }
 
   ngOnInit(): void {
-    fetch('http://127.0.0.1:8000/playlist/?type=0')
-      .then(res => res.json())
-      .then((out) => {
-          this.playlists = out;
-      }).catch(err => console.log(err));
+    this.publicService.getPlaylists()
+      .pipe(first())
+      .subscribe(
+        response => {
+          this.playlists = response;
+        },
+        error => {
+          alert(error.message);
+        }
+      );
   }
 
 }
