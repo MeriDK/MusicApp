@@ -1,9 +1,12 @@
 <app-nav-bar></app-nav-bar>
 <div class="profile">
   <img src="assets/img/ava1.jpg" alt="ava" class="profile__ava">
-  <div class="profile__info">Username: {{ profile.username }}</div>
-  <div class="profile__info">Email: {{ profile.email }}</div>
-  <a routerLink="/">
-    <button type="button" class="login__button profile__button">Log out</button>
-  </a>
+  <div class="profile__info">Username:
+    <span contenteditable="true" id="username_edit">{{ profile.username }}</span>
+  </div>
+  <div class="profile__info">Email:
+    <span contenteditable="true" id="email_edit">{{ profile.email }}</span>
+  </div>
+  <button type="button" class="login__button profile__button" (click)="saveProfile()">Save changes</button>
+  <button type="button" class="login__button profile__button" (click)="logOut()">Log out</button>
 </div>
