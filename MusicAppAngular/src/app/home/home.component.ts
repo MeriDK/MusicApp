@@ -1,22 +1,32 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeService } from './home.service';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.sass']
+  styleUrls: ['./home.component.sass'],
+  providers: [HomeService]
 })
 export class HomeComponent implements OnInit {
 
-  playlists = [];
+  playlists: any;
 
-  constructor() { }
+  constructor(
+    private homeService: HomeService
+  ) { }
 
   ngOnInit(): void {
-    fetch('http://127.0.0.1:8000/playlist/')
-      .then(res => res.json())
-      .then((out) => {
-          this.playlists = out;
-      }).catch(err => console.log(err));
+    this.homeService.getPlaylists()
+      .pipe(first())
+      .subscribe(
+        response => {
+          this.playlists = response;
+        },
+        error => {
+          alert(error.message);
+        }
+      );
   }
 
 }

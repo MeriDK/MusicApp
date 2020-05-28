@@ -1,22 +1,32 @@
 import { Component, OnInit } from '@angular/core';
+import { PrivateService } from './private.service';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-private',
   templateUrl: './private.component.html',
-  styleUrls: ['./private.component.sass', '../home/home.component.sass']
+  styleUrls: ['./private.component.sass', '../home/home.component.sass'],
+  providers: [PrivateService]
 })
 export class PrivateComponent implements OnInit {
 
-  playlists = [];
+  playlists: any;
 
-  constructor() { }
+  constructor(
+    private privateService: PrivateService
+  ) { }
 
   ngOnInit(): void {
-    fetch('http://127.0.0.1:8000/playlist/?type=1')
-      .then(res => res.json())
-      .then((out) => {
-          this.playlists = out;
-      }).catch(err => console.log(err));
+    this.privateService.getPlaylists()
+      .pipe(first())
+      .subscribe(
+        response => {
+          this.playlists = response;
+        },
+        error => {
+          alert(error.message);
+        }
+      );
   }
 
 }

@@ -1,30 +1,50 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { first } from 'rxjs/operators';
+import { PlaylistService } from './playlist.service';
 
 @Component({
   selector: 'app-playlist',
   templateUrl: './playlist.component.html',
-  styleUrls: ['./playlist.component.sass']
+  styleUrls: ['./playlist.component.sass'],
+  providers: [PlaylistService]
 })
 export class PlaylistComponent implements OnInit {
 
+  @Input() playlistId;
 
-  songs = [];
+  songs: any;
   playlist: any;
+  id: any;
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private playlistService: PlaylistService
+  ) {
+    this.id = this.route.snapshot.paramMap.get('id');
+  }
 
   ngOnInit(): void {
-    fetch('http://127.0.0.1:8000/playlist/2/')
-      .then(res => res.json())
-      .then((out) => {
-        this.playlist = out;
-      }).catch(err => console.log(err));
-
-    fetch('http://127.0.0.1:8000/song/?playlist=2')
-      .then(res => res.json())
-      .then((out) => {
-        this.songs = out;
-      }).catch(err => console.log(err));
+    this.playlistService.getPlaylist(this.id)
+      .pipe(first())
+      .subscribe(
+        response => {
+          this.playlist = response;
+        },
+        error => {
+          alert(error.message);
+        }
+      );
+    this.playlistService.getSongs(this.id)
+      .pipe(first())
+      .subscribe(
+        response => {
+          this.songs = response;
+        },
+        error => {
+          alert(error.message);
+        }
+      );
   }
 
 }
