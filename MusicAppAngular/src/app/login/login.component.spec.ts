@@ -4,6 +4,8 @@ import { LoginComponent } from './login.component';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {RouterTestingModule} from '@angular/router/testing';
 import {FormBuilder, ReactiveFormsModule} from '@angular/forms';
+import {CookieService} from "ngx-cookie-service";
+import {LoginService} from "./login.service";
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -30,7 +32,8 @@ describe('LoginComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should return if password or username undefined onSubmit', () => {
+  it('should login form be defined onSubmit', () => {
     component.onSubmit();
+    expect(component.loginForm).toBeDefined();
   });
 });

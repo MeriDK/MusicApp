@@ -29,4 +29,9 @@ describe('RegistrationComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should registration form be defined', () => {
+    component.onSubmit();
+    expect(component.registrationForm).toBeDefined();
+  });
 });
