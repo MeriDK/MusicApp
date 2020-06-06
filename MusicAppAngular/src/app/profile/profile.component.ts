@@ -12,7 +12,10 @@ import { Router } from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
 
-  profile: any;
+  profile: any = {
+    email: '',
+    username: ''
+  };
 
   constructor(
     private profileService: ProfileService,

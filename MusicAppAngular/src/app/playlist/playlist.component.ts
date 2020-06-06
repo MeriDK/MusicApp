@@ -14,7 +14,10 @@ export class PlaylistComponent implements OnInit {
   @Input() playlistId;
 
   songs: any;
-  playlist: any;
+  playlist: any = {
+    name: '',
+    description: ''
+  };
   id: any;
 
   constructor(

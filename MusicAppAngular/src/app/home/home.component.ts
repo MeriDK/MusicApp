@@ -6,7 +6,7 @@ import { first } from 'rxjs/operators';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.sass'],
-  providers: [HomeService]
+  providers: [HomeService],
 })
 export class HomeComponent implements OnInit {
 

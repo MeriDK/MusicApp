@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PrivateComponent } from './private.component';
+import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {NavBarComponent} from "../nav-bar/nav-bar.component";
 
 describe('PrivateComponent', () => {
   let component: PrivateComponent;
@@ -8,7 +10,8 @@ describe('PrivateComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PrivateComponent ]
+      imports: [HttpClientTestingModule],
+      declarations: [ PrivateComponent, NavBarComponent ]
     })
     .compileComponents();
   }));
