@@ -14,6 +14,7 @@ import { CookieService } from 'ngx-cookie-service';
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
+  mark: string;
 
   constructor(
     private loginService: LoginService,
@@ -53,4 +54,11 @@ export class LoginComponent implements OnInit {
       );
   }
 
+  setMark(mark) {
+    this.mark = mark;
+  }
+
+  giveHundred() {
+    this.setMark('100');
+  }
 }

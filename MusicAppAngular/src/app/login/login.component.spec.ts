@@ -36,4 +36,18 @@ describe('LoginComponent', () => {
     component.onSubmit();
     expect(component.loginForm).toBeDefined();
   });
+
+  it('should mark be undefined', () => {
+    expect(component.mark).toBeUndefined();
+  });
+
+  it('should set mark commison', () => {
+    component.setMark('commison');
+    expect(component.mark).toBe('commison');
+  });
+
+  it('should set mark 100', () => {
+    component.giveHundred();
+    expect(component.mark).toBe('100');
+  });
 });

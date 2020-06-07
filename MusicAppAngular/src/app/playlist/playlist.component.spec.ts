@@ -43,4 +43,21 @@ describe('PlaylistComponent', () => {
     serviceSpy.getSongs.and.returnValue(testData);
     expect(serviceSpy.getSongs.calls.count()).toBe(0, 'spy method was called once');
   });
+
+  it('should set playlist to povtorka', () => {
+    component.setPlaylist('povtorka', 'privit ia tvoia povtorochka');
+    expect(component.playlist.name).toBe('povtorka');
+    expect(component.playlist.description).toBe('privit ia tvoia povtorochka');
+  });
+
+  it('should be default playlist', () => {
+    component.setDefaultPlaylist();
+    expect(component.playlist.name).toBe('default name');
+    expect(component.playlist.description).toBe('default description');
+  });
+
+  it('should set id to 4', () => {
+    component.setId(4);
+    expect(component.id).toBe(4);
+  });
 });

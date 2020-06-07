@@ -50,4 +50,16 @@ export class PlaylistComponent implements OnInit {
       );
   }
 
+  setPlaylist(name, description) {
+    this.playlist.name = name;
+    this.playlist.description = description;
+  }
+
+  setDefaultPlaylist() {
+    this.setPlaylist('default name', 'default description');
+  }
+
+  setId(id) {
+    this.id = id;
+  }
 }
